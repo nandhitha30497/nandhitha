@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .search-container {
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 16px;
+            font-size: 16px;
+            margin-left: 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #0078d7;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h1>Search</h1>
+        <input type="text" id="searchBox" placeholder="Enter search term...">
+        <button onclick="performSearch()">Search</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('searchBox').value.trim();
+            const result = document.getElementById('result');
+
+            if (query) {
+                result.textContent = `You searched for: ${query}`;
+            } else {
+                result.textContent = 'Please enter a search term.';
+            }
+        }
+
+        document.getElementById('searchBox').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>
+
+Save this as index.html and open it in a browser.
